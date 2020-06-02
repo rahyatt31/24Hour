@@ -1,0 +1,4 @@
+C:\Users\13172\Desktop\24HourProject\24HourProject\24Hour.Data\obj\Debug\24Hour.Data.csprojAssemblyReference.cache
+C:\Users\13172\Desktop\24HourProject\24HourProject\24Hour.Data\obj\Debug\24Hour.Data.csproj.CoreCompileInputs.cache
+C:\Users\mike6\Source\Repos\24HourProject\24Hour.Data\obj\Debug\24Hour.Data.csprojAssemblyReference.cache
+C:\Users\mike6\Source\Repos\24HourProject\24Hour.Data\obj\Debug\24Hour.Data.csproj.CoreCompileInputs.cache
