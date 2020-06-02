@@ -20,7 +20,7 @@ namespace _24Hour.Services
             {
                 CommentID = _commentID,
                 CommentText = model.CommentText,
-                CommentAuthor = model.CommentAuthor,
+                UserID = model.UserID,
                 CommentPost = model.CommentPost,
                 CreatedUtc = DateTimeOffset.Now
             };
@@ -44,7 +44,7 @@ namespace _24Hour.Services
                                 {
                                     CommentID = e.CommentID,
                                     CommentText = e.CommentText,
-                                    CommentAuthor = e.CommentAuthor,
+                                    UserID = e.UserID,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
@@ -64,7 +64,7 @@ namespace _24Hour.Services
                     {
                         CommentID = entity.CommentID,
                         CommentText = entity.CommentText,
-                        CommentAuthor = entity.CommentAuthor,
+                        UserID = entity.UserID,
                         CommentPost = entity.CommentPost,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
@@ -81,7 +81,7 @@ namespace _24Hour.Services
                         .Single(e => e.CommentID == model.CommentID && e.CommentID == _commentID);
                 entity.CommentID = model.CommentID;
                 entity.CommentText = model.CommentText;
-                entity.CommentAuthor = model.CommentAuthor;
+                entity.UserID = model.UserID;
                 entity.CommentPost = model.CommentPost;
                 //entity.ModifiedUtc = DateTimeOffset.UtcNow;
                 return ctx.SaveChanges() == 1;

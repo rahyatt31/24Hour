@@ -9,7 +9,7 @@ namespace _24Hour.Models.User
 {
     public class UserDetail
     {
-        public Guid UserUserID { get; set; }
+        public Guid UserID { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
 

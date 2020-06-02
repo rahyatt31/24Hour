@@ -21,7 +21,7 @@ namespace _24Hour.Services
                 ReplyID = _replyID,
                 ReplyTitle = model.ReplyTitle,
                 ReplyText = model.ReplyText,
-                ReplyAuthor = model.ReplyAuthor,
+                UserID = model.UserID,
                 CreatedUtc = DateTimeOffset.Now
             };
             using (var ctx = new ApplicationDbContext())
@@ -45,7 +45,7 @@ namespace _24Hour.Services
                                     ReplyID = _replyID,
                                     ReplyTitle = e.ReplyTitle,
                                     ReplyText = e.ReplyText,
-                                    ReplyAuthor = e.ReplyAuthor,
+                                    UserID = e.UserID,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
@@ -66,7 +66,7 @@ namespace _24Hour.Services
                         ReplyID = _replyID,
                         ReplyTitle = entity.ReplyTitle,
                         ReplyText = entity.ReplyText,
-                        ReplyAuthor = entity.ReplyAuthor,
+                        UserID = entity.UserID,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };
@@ -83,7 +83,7 @@ namespace _24Hour.Services
                 entity.ReplyID = model.ReplyID;
                 entity.ReplyTitle = model.ReplyTitle;
                 entity.ReplyText = model.ReplyText;
-                entity.ReplyAuthor = model.ReplyAuthor;
+                entity.UserID = model.UserID;
                 //entity.ModifiedUtc = DateTimeOffset.UtcNow;
                 return ctx.SaveChanges() == 1;
             }

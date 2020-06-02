@@ -14,7 +14,7 @@ namespace _24Hour.Models.Comment
 
         public string CommentText { get; set; }
 
-        public Data.User CommentAuthor { get; set; }
+        public Guid UserID { get; set; }
 
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }

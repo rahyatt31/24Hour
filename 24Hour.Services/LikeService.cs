@@ -19,8 +19,7 @@ namespace _24Hour.Services
             var entity = new Like()
             {
                 LikeID = _likeID,
-                LikedPost = model.LikedPost,
-                Liker = model.Liker,
+                UserID = model.UserID,
                 CreatedUtc = DateTimeOffset.Now
             };
             using (var ctx = new ApplicationDbContext())
@@ -42,7 +41,6 @@ namespace _24Hour.Services
                                 new LikeListItem
                                 {
                                     LikedPost = e.LikedPost,
-                                    Liker = e.Liker,
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
@@ -62,7 +60,6 @@ namespace _24Hour.Services
                     {
                         LikeID = entity.LikeID,
                         LikedPost = entity.LikedPost,
-                        Liker = entity.Liker,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };
@@ -77,7 +74,6 @@ namespace _24Hour.Services
                         .Likes
                         .Single(e => e.LikeID == model.LikeID && e.LikeID == _likeID);
                 entity.LikedPost = model.LikedPost;
-                entity.Liker = model.Liker;
                 //entity.ModifiedUtc = DateTimeOffset.UtcNow;
                 return ctx.SaveChanges() == 1;
             }

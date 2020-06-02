@@ -13,7 +13,6 @@ namespace _24Hour.Models.Reply
         public string ReplyTitle { get; set; }
         [Required]
         public string ReplyText { get; set; }
-        [Required]
-        public Data.User ReplyAuthor { get; set; }
+        public Guid UserID { get; set; }
     }
 }

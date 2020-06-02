@@ -10,10 +10,7 @@ namespace _24Hour.Models.Like
 {
     public class LikeCreate
     {
-        [Required]
-        public Data.Post LikedPost { get; set; }
-        
-        [Required]
-        public Data.User Liker { get; set; }
+        public int PostID { get; set; }
+        public Guid UserID { get; set; }
     }
 }

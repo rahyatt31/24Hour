@@ -13,6 +13,6 @@ namespace _24Hour.Models.Post
         public int PostID { get; set; }
         public string PostTitle { get; set; }
         public string PostText { get; set; }
-        public Data.User PostAuthor { get; set; }
+        public Guid UserID { get; set; }
     }
 }

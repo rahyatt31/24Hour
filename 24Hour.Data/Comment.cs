@@ -10,21 +10,26 @@ namespace _24Hour.Data
 {
     public class Comment
     {
+        [Key]
         public int CommentID { get; set; }
+        [Required]
         public string CommentText { get; set; }
-        public User CommentAuthor { get; set; }
+        [Required]
         public Post CommentPost { get; set; }
 
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
 
-        [ForeignKey("Like")]
-        public Like LikedID { get; set; }
+        [ForeignKey("CommentAuthor")]
+        public Guid UserID { get; set; }
+        public virtual User CommentAuthor { get; set; }
 
-        [ForeignKey("Reply")]
-        public Reply ReplyID { get; set; }
+        [ForeignKey("Post")]
+        public int PostID { get; set; }
+        public virtual Post Post { get; set; }
 
-        public ICollection<Post> Posts { get; set; }
+        public virtual ICollection<Like> Like { get; set; }
+        public virtual ICollection<Reply> Reply { get; set; }
     }
 }

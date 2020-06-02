@@ -23,7 +23,7 @@ using _24Hour.Models.Post;
                         PostID = _postID,
                         PostTitle = model.PostTitle,
                         PostText = model.PostText,
-                        PostAuthor = model.PostAuthor,
+                        UserID = model.UserID,
                         CreatedUtc = DateTimeOffset.Now,
                     };
                 using (var ctx = new ApplicationDbContext())
@@ -47,7 +47,7 @@ using _24Hour.Models.Post;
                                         PostID = e.PostID,
                                         PostTitle = e.PostTitle,
                                         PostText = e.PostText,
-                                        PostAuthor = e.PostAuthor,
+                                        UserID = e.UserID,
                                         CreatedUtc = e.CreatedUtc
                                     }
                             );
@@ -68,7 +68,7 @@ using _24Hour.Models.Post;
                             PostID = entity.PostID,
                             PostTitle = entity.PostTitle,
                             PostText = entity.PostText,
-                            PostAuthor = entity.PostAuthor,
+                            UserID = entity.UserID,
                             CreatedUtc = entity.CreatedUtc,
                             ModifiedUtc = entity.ModifiedUtc
                         };
@@ -84,7 +84,7 @@ using _24Hour.Models.Post;
                             .Single(e => e.PostID == model.PostID && e.PostID == _postID);
                     entity.PostTitle = model.PostTitle;
                     entity.PostText = model.PostText;
-                    entity.PostAuthor = model.PostAuthor;
+                    entity.UserID = model.UserID;
                     //entity.ModifiedUtc = DateTimeOffset.UtcNow;
                     return ctx.SaveChanges() == 1;
                 }

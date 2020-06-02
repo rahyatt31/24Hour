@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,13 +19,14 @@ namespace _24Hour.Data
         [Required]
         public string ReplyText { get; set; }
 
-        [Required]
-        public User ReplyAuthor { get; set; }
+        [ForeignKey("ReplyAuthor")]
+        public Guid UserID { get; set; }
+        public virtual User ReplyAuthor { get; set; }
 
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
 
-        public ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace _24Hour.Models.Like
     {
         public int LikeID { get; set; }
         public Data.Post LikedPost { get; set; }
-        public Data.User Liker { get; set; }
+        public Guid UserID { get; set; }
         
         [Display(Name="Created")]
         public DateTimeOffset CreatedUtc { get; set; }

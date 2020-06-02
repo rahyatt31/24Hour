@@ -12,7 +12,7 @@ namespace _24Hour.Models.Comment
         public int CommentID { get; set; }
 
         public string CommentText { get; set; }
-        public Data.User CommentAuthor { get; set; }
+        public Guid UserID { get; set; }
 
         public Data.Post CommentPost { get; set; }
 
