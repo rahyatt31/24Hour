@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace _24Hour.Models.Post
 {
-    public class PostListItems
+    public class PostListItem
     {
         public int PostID { get; set; }
         public string PostTitle { get; set; }

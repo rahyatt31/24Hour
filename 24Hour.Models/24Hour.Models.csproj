@@ -66,11 +66,11 @@
     <Compile Include="Post\PostCreate.cs" />
     <Compile Include="Post\PostDetail.cs" />
     <Compile Include="Post\PostEdit.cs" />
-    <Compile Include="Post\PostListItems.cs" />
+    <Compile Include="Post\PostListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reply\ReplyDetail.cs" />
     <Compile Include="Reply\ReplyEdit.cs" />
-    <Compile Include="Reply\ReplyListItems.cs" />
+    <Compile Include="Reply\ReplyListItem.cs" />
     <Compile Include="User\UserCreate.cs" />
     <Compile Include="User\UserDetail.cs" />
     <Compile Include="User\UserEdit.cs" />
@@ -85,10 +85,6 @@
     <ProjectReference Include="..\24Hour.Data\24Hour.Data.csproj">
       <Project>{11f35c01-59d2-4829-b36d-1515d4f819f2}</Project>
       <Name>24Hour.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\24Hour.Services\24Hour.Services.csproj">
-      <Project>{d6e1ffc6-e1d7-45da-8c8c-dbd76829c9d5}</Project>
-      <Name>24Hour.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

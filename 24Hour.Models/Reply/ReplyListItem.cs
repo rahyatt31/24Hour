@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace _24Hour.Models.Reply
 {
-    public class ReplyCreate
+    public class ReplyListItem
     {
-        [Required]
+        public int ReplyID { get; set; }
         public string ReplyTitle { get; set; }
-        [Required]
         public string ReplyText { get; set; }
-        [Required]
         public Data.User ReplyAuthor { get; set; }
+
+        [Display(Name = "Created")]
+        public DateTimeOffset CreatedUtc { get; set; }
     }
 }

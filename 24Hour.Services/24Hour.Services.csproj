@@ -54,11 +54,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommentService.cs" />
+    <Compile Include="LikeService.cs" />
+    <Compile Include="PostService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReplyService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\24Hour.Data\24Hour.Data.csproj">
+      <Project>{11f35c01-59d2-4829-b36d-1515d4f819f2}</Project>
+      <Name>24Hour.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\24Hour.Models\24Hour.Models.csproj">
+      <Project>{44d143dd-9b92-48ec-9b02-63acb94cb609}</Project>
+      <Name>24Hour.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

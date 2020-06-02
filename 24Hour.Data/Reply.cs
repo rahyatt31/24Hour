@@ -11,9 +11,15 @@ namespace _24Hour.Data
     {
         [Key]
         public int ReplyID { get; set; }
+        
+        [Required]
+        public string ReplyTitle { get; set; }
 
         [Required]
         public string ReplyText { get; set; }
+
+        [Required]
+        public User ReplyAuthor { get; set; }
 
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }

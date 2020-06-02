@@ -11,11 +11,13 @@ namespace _24Hour.Models.Reply
     {
 
         public int ReplyID { get; set; }
+        public string ReplyTitle { get; set; }
         public string ReplyText { get; set; }
         public Data.User ReplyAuthor { get; set; }
 
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
+        
         [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
