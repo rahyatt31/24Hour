@@ -1,5 +1,5 @@
 ﻿using _24Hour.Data;
-using _24Hour.Models.User;
+using _24Hour.Models.Profile;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace _24Hour.Services
 {
-    public class UserService
+    public class ProfileService
     {
         private readonly Guid _userID;           // Was a GUID
-        public UserService(Guid userID)          // Was a GUID
+        public ProfileService(Guid userID)          // Was a GUID
         {
             _userID = userID;
         }
-        public bool CreateUser(UserCreate model)
+        public bool CreateProfile(ProfileCreate model)
         {
             var entity =
-                new User()
+                new Profile()
                 {
                     UserID = _userID,
                     Name = model.Name,
@@ -27,21 +27,21 @@ namespace _24Hour.Services
                 };
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Users.Add(entity);
+                ctx.Profiles.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
-        public IEnumerable<UserListItem> GetUsers()
+        public IEnumerable<ProfileListItem> GetProfiles()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                        .Users
+                        .Profiles
                         .Where(e => e.UserID == _userID)
                         .Select(
                             e =>
-                                new UserListItem
+                                new ProfileListItem
                                 {
                                     UserID = e.UserID,
                                     Name = e.Name,
@@ -52,16 +52,16 @@ namespace _24Hour.Services
                 return query.ToArray();
             }
         }
-        public UserDetail GetUserByID(Guid userID)
+        public ProfileDetail GetProfileByID(Guid userID)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Users
+                        .Profiles
                         .Single(e => e.UserID == userID && e.UserID == _userID);
                 return
-                    new UserDetail
+                    new ProfileDetail
                     {
                         UserID = entity.UserID,
                         Name = entity.Name,
@@ -71,13 +71,13 @@ namespace _24Hour.Services
                     };
             }
         }
-        public bool UpdateUser(UserEdit model)
+        public bool UpdateProfile(ProfileEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Users
+                        .Profiles
                         .Single(e => e.UserID == model.UserID && e.UserID == _userID);
                 entity.Name = model.Name;
                 entity.Email = model.Email;
@@ -86,15 +86,15 @@ namespace _24Hour.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        public bool DeleteUser(Guid userID)
+        public bool DeleteProfile(Guid userID)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Users
+                        .Profiles
                         .Single(e => e.UserID == userID && e.UserID == _userID);
-                ctx.Users.Remove(entity);
+                ctx.Profiles.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }
         }

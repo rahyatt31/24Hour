@@ -29,7 +29,7 @@ namespace _24HourProject.Controllers
         }
         private ReplyService CreateReplyService()
         {
-            var replyId = Int32.Parse(User.Identity.GetUserId());
+            var replyId = Guid.Parse(User.Identity.GetUserId());
             var replyService = new ReplyService(replyId);
             return replyService;
         }

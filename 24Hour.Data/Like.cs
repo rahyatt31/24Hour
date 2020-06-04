@@ -18,7 +18,7 @@ namespace _24Hour.Data
 
         [ForeignKey("Liker")]
         public Guid UserID { get; set; }
-        public virtual User Liker { get; set; }
+        public virtual Profile Liker { get; set; }
 
         [ForeignKey("Post")]
         public int PostID { get; set; }

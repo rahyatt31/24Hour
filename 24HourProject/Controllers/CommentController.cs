@@ -29,7 +29,7 @@ namespace _24HourProject.Controllers
         }
         private CommentService CreateCommentService()
         {
-            var commentID = Int32.Parse(User.Identity.GetUserId());
+            var commentID = Guid.Parse(User.Identity.GetUserId());
             var commentService = new CommentService(commentID);
             return commentService;
         }

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _24Hour.Models.User
+namespace _24Hour.Models.Profile
 {
-    public class UserDetail
+    public class ProfileListItem
     {
         public Guid UserID { get; set; }
         public string Name { get; set; }
@@ -15,7 +15,6 @@ namespace _24Hour.Models.User
 
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
-        [Display(Name = "Modified")]
-        public DateTimeOffset? ModifiedUtc { get; set; }
+
     }
 }

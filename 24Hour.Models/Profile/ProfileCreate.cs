@@ -5,16 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _24Hour.Models.User
+namespace _24Hour.Models.Profile
 {
-    public class UserListItem
+    public class ProfileCreate
     {
-        public Guid UserID { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Email { get; set; }
-
-        [Display(Name = "Created")]
-        public DateTimeOffset CreatedUtc { get; set; }
-
+        //[Required]
+        //public Guid UserID { get; set; } -- This is generated when the ApplicationUser is entered into dbo
+ 
     }
 }

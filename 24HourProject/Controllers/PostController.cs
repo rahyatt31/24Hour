@@ -30,7 +30,7 @@ namespace _24HourProject.Controllers
 
         private PostService CreatePostService()
         {
-            var userId = Int32.Parse(User.Identity.GetUserId());
+            var userId = Guid.Parse(User.Identity.GetUserId());
             var postService = new PostService(userId);
             return postService;
         }

@@ -79,11 +79,19 @@
     <Compile Include="Migrations\202006021529175_FirstMigration.Designer.cs">
       <DependentUpon>202006021529175_FirstMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006031458380_ChangedUserToProfile.cs" />
+    <Compile Include="Migrations\202006031458380_ChangedUserToProfile.Designer.cs">
+      <DependentUpon>202006031458380_ChangedUserToProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006031554086_HopefullyLastMigration.cs" />
+    <Compile Include="Migrations\202006031554086_HopefullyLastMigration.Designer.cs">
+      <DependentUpon>202006031554086_HopefullyLastMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reply.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="Profile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -92,6 +100,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202006021529175_FirstMigration.resx">
       <DependentUpon>202006021529175_FirstMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006031458380_ChangedUserToProfile.resx">
+      <DependentUpon>202006031458380_ChangedUserToProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006031554086_HopefullyLastMigration.resx">
+      <DependentUpon>202006031554086_HopefullyLastMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

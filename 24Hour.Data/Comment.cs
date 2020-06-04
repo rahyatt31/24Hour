@@ -23,7 +23,7 @@ namespace _24Hour.Data
 
         [ForeignKey("CommentAuthor")]
         public Guid UserID { get; set; }
-        public virtual User CommentAuthor { get; set; }
+        public virtual Profile CommentAuthor { get; set; }
 
         [ForeignKey("Post")]
         public int PostID { get; set; }

@@ -10,17 +10,18 @@ using _24Hour.Models.Post;
     {
         public class PostService
         {
-            private readonly int _postID;           // Was a GUID
-            public PostService(int userID)          // Was a GUID
+        //private readonly int _postID; -- Do not actually need -- Was a GUID
+        private readonly Guid _userID;
+            public PostService(Guid userID)
             {
-                _postID = userID;
+                _userID = userID;
             }
             public bool CreatePost(PostCreate model)
             {
                 var entity =
                     new Post()
                     {
-                        PostID = _postID,
+                        //PostID = _postID -- Do not actually need
                         PostTitle = model.PostTitle,
                         PostText = model.PostText,
                         UserID = model.UserID,
@@ -39,7 +40,7 @@ using _24Hour.Models.Post;
                     var query =
                         ctx
                             .Posts
-                            .Where(e => e.PostID == _postID)
+                            .Where(e => e.UserID == _userID) //Filters out entities that have a userId that doesn't match the current logged in user
                             .Select(
                                 e =>
                                     new PostListItem
@@ -61,7 +62,7 @@ using _24Hour.Models.Post;
                     var entity =
                         ctx
                             .Posts
-                            .Single(e => e.PostID == postID && e.PostID == _postID);
+                            .Single(e => e.PostID == postID && e.UserID == _userID);
                     return
                         new PostDetail
                         {
@@ -81,7 +82,7 @@ using _24Hour.Models.Post;
                     var entity =
                         ctx
                             .Posts
-                            .Single(e => e.PostID == model.PostID && e.PostID == _postID);
+                            .Single(e => e.PostID == model.PostID && e.UserID == _userID);
                     entity.PostTitle = model.PostTitle;
                     entity.PostText = model.PostText;
                     entity.UserID = model.UserID;
@@ -96,7 +97,7 @@ using _24Hour.Models.Post;
                     var entity =
                         ctx
                             .Posts
-                            .Single(e => e.PostID == postID && e.PostID == _postID);
+                            .Single(e => e.PostID == postID && e.UserID == _userID);
                     ctx.Posts.Remove(entity);
                     return ctx.SaveChanges() == 1;
                 }

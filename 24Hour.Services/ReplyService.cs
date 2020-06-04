@@ -9,16 +9,15 @@ namespace _24Hour.Services
 {
     public class ReplyService
     {
-        private readonly int _replyID; // Need to be Guid?
-        public ReplyService(int replyID)
+        private readonly Guid _userID; // Need to be Guid?
+        public ReplyService(Guid userID)
         {
-            _replyID = replyID;
+            _userID = userID;
         }
         public bool CreateReply(ReplyCreate model)
         {
             var entity = new Reply()
             {
-                ReplyID = _replyID,
                 ReplyTitle = model.ReplyTitle,
                 ReplyText = model.ReplyText,
                 UserID = model.UserID,
@@ -37,12 +36,12 @@ namespace _24Hour.Services
                 var query =
                     ctx
                         .Replies
-                        .Where(e => e.ReplyID == _replyID)
+                        .Where(e => e.UserID == _userID)
                         .Select(
                             e =>
                                 new ReplyListItem
                                 {
-                                    ReplyID = _replyID,
+                                    ReplyID = e.ReplyID,
                                     ReplyTitle = e.ReplyTitle,
                                     ReplyText = e.ReplyText,
                                     UserID = e.UserID,
@@ -59,11 +58,11 @@ namespace _24Hour.Services
                 var entity =
                     ctx
                         .Replies
-                        .Single(e => e.ReplyID == replyID && e.ReplyID == _replyID);
+                        .Single(e => e.ReplyID == replyID && e.UserID == _userID);
                 return
                     new ReplyDetail
                     {
-                        ReplyID = _replyID,
+                        ReplyID = entity.ReplyID,
                         ReplyTitle = entity.ReplyTitle,
                         ReplyText = entity.ReplyText,
                         UserID = entity.UserID,
@@ -79,7 +78,7 @@ namespace _24Hour.Services
                 var entity =
                     ctx
                         .Replies
-                        .Single(e => e.ReplyID == model.ReplyID && e.ReplyID == _replyID);
+                        .Single(e => e.ReplyID == model.ReplyID && e.UserID == _userID);
                 entity.ReplyID = model.ReplyID;
                 entity.ReplyTitle = model.ReplyTitle;
                 entity.ReplyText = model.ReplyText;
@@ -95,7 +94,7 @@ namespace _24Hour.Services
                 var entity =
                     ctx
                         .Replies
-                        .Single(e => e.ReplyID == replyID && e.ReplyID == _replyID);
+                        .Single(e => e.ReplyID == replyID && e.UserID == _userID);
                 ctx.Replies.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }

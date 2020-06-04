@@ -31,3 +31,5 @@ C:\ElevenFiftyProjects\24Hour\24Hour.Data\obj\Debug\24Hour.Data.dll
 C:\ElevenFiftyProjects\24Hour\24Hour.Data\obj\Debug\24Hour.Data.pdb
 C:\ElevenFiftyProjects\24Hour\24Hour.Data\obj\Debug\_24Hour.Data.Migrations.FirstMigration.resources
 C:\ElevenFiftyProjects\24Hour\24Hour.Data\obj\Debug\24Hour.Data.csproj.GenerateResource.cache
+C:\ElevenFiftyProjects\24Hour\24Hour.Data\obj\Debug\_24Hour.Data.Migrations.ChangedUserToProfile.resources
+C:\ElevenFiftyProjects\24Hour\24Hour.Data\obj\Debug\_24Hour.Data.Migrations.HopefullyLastMigration.resources

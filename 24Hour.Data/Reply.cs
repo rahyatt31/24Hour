@@ -21,7 +21,7 @@ namespace _24Hour.Data
 
         [ForeignKey("ReplyAuthor")]
         public Guid UserID { get; set; }
-        public virtual User ReplyAuthor { get; set; }
+        public virtual Profile ReplyAuthor { get; set; }
 
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }

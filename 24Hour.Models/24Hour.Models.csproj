@@ -71,10 +71,10 @@
     <Compile Include="Reply\ReplyDetail.cs" />
     <Compile Include="Reply\ReplyEdit.cs" />
     <Compile Include="Reply\ReplyListItem.cs" />
-    <Compile Include="User\UserCreate.cs" />
-    <Compile Include="User\UserDetail.cs" />
-    <Compile Include="User\UserEdit.cs" />
-    <Compile Include="User\UserListItem.cs" />
+    <Compile Include="Profile\ProfileCreate.cs" />
+    <Compile Include="Profile\ProfileDetail.cs" />
+    <Compile Include="Profile\ProfileEdit.cs" />
+    <Compile Include="Profile\ProfileListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

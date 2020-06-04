@@ -29,7 +29,7 @@ namespace _24HourProject.Controllers
         }
         private LikeService CreateLikeService()
         {
-            var likeID = Int32.Parse(User.Identity.GetUserId());
+            var likeID = Guid.Parse(User.Identity.GetUserId());
             var likeService = new LikeService(likeID);
             return likeService;
         }

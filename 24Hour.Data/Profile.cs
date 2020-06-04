@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace _24Hour.Data
 {
-    public class User                           // Don't need to use
+    public class Profile                           // Don't need to use
     {
         [Key]
-        public Guid UserID { get; set; }
+        public Guid UserID { get; set; } //ProfileID?
 
         public string Name { get; set; }
         public string Email { get; set; }

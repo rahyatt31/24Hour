@@ -9,16 +9,15 @@ namespace _24Hour.Services
 {
     public class CommentService
     {
-        private readonly int _commentID; // Need to be Guid?
-        public CommentService(int commentID)
+        private readonly Guid _userID; // Need to be Guid?
+        public CommentService(Guid userID)
         {
-            _commentID = commentID;
+            _userID = userID;
         }
         public bool CreateComment(CommentCreate model)
         {
             var entity = new Comment()
             {
-                CommentID = _commentID,
                 CommentText = model.CommentText,
                 UserID = model.UserID,
                 CommentPost = model.CommentPost,
@@ -37,7 +36,7 @@ namespace _24Hour.Services
                 var query =
                     ctx
                         .Comments
-                        .Where(e => e.CommentID == _commentID)
+                        .Where(e => e.UserID == _userID)
                         .Select(
                             e =>
                                 new CommentListItem
@@ -58,7 +57,7 @@ namespace _24Hour.Services
                 var entity =
                     ctx
                         .Comments
-                        .Single(e => e.CommentID == commentID && e.CommentID == _commentID);
+                        .Single(e => e.CommentID == commentID && e.UserID == _userID);
                 return
                     new CommentDetail
                     {
@@ -78,7 +77,7 @@ namespace _24Hour.Services
                 var entity =
                     ctx
                         .Comments
-                        .Single(e => e.CommentID == model.CommentID && e.CommentID == _commentID);
+                        .Single(e => e.CommentID == model.CommentID && e.UserID == _userID);
                 entity.CommentID = model.CommentID;
                 entity.CommentText = model.CommentText;
                 entity.UserID = model.UserID;
@@ -94,7 +93,7 @@ namespace _24Hour.Services
                 var entity =
                     ctx
                         .Comments
-                        .Single(e => e.CommentID == commentID && e.CommentID == _commentID);
+                        .Single(e => e.CommentID == commentID && e.UserID == _userID);
                 ctx.Comments.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }

@@ -19,7 +19,7 @@ namespace _24Hour.Data
 
         [ForeignKey("PostAuthor")]
         public Guid UserID { get; set; }
-        public virtual User PostAuthor { get; set; }
+        public virtual Profile PostAuthor { get; set; }
 
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }

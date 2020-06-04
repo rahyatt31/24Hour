@@ -9,16 +9,15 @@ namespace _24Hour.Services
 {
     public class LikeService
     {
-        private readonly int _likeID; //Need to be Guid?
-        public LikeService(int likeID)
+        private readonly Guid _userID;
+        public LikeService(Guid userID)
         {
-            _likeID = likeID;
+            _userID = userID;
         }
         public bool CreateLike(LikeCreate model)
         {
             var entity = new Like()
             {
-                LikeID = _likeID,
                 UserID = model.UserID,
                 CreatedUtc = DateTimeOffset.Now
             };
@@ -35,7 +34,7 @@ namespace _24Hour.Services
                 var query =
                     ctx
                         .Likes
-                        .Where(e => e.LikeID == _likeID)
+                        .Where(e => e.UserID == _userID)
                         .Select(
                             e =>
                                 new LikeListItem
@@ -54,7 +53,7 @@ namespace _24Hour.Services
                 var entity =
                     ctx
                         .Likes
-                        .Single(e => e.LikeID == likeID && e.LikeID == _likeID);
+                        .Single(e => e.LikeID == likeID && e.UserID == _userID);
                 return
                     new LikeDetail
                     {
@@ -72,7 +71,7 @@ namespace _24Hour.Services
                 var entity =
                     ctx
                         .Likes
-                        .Single(e => e.LikeID == model.LikeID && e.LikeID == _likeID);
+                        .Single(e => e.LikeID == model.LikeID && e.UserID == _userID);
                 entity.LikedPost = model.LikedPost;
                 //entity.ModifiedUtc = DateTimeOffset.UtcNow;
                 return ctx.SaveChanges() == 1;
@@ -85,7 +84,7 @@ namespace _24Hour.Services
                 var entity =
                     ctx
                         .Likes
-                        .Single(e => e.LikeID == likeId && e.LikeID == _likeID);
+                        .Single(e => e.LikeID == likeId && e.UserID == _userID);
                 ctx.Likes.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }

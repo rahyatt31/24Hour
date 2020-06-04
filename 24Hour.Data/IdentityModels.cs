@@ -20,6 +20,16 @@ namespace _24Hour.Data
             // Add custom user claims here
             return userIdentity;
         }
+
+
+
+
+
+
+
+
+
+
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -38,7 +48,7 @@ namespace _24Hour.Data
         public DbSet<Like> Likes { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Reply> Replies { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Profile> Profiles { get; set; }
 
 
 
